@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brian Walker | News Portfolio</title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0b1220;
+        --panel: rgba(255, 255, 255, 0.04);
+        --card: rgba(255, 255, 255, 0.06);
+        --border: rgba(255, 255, 255, 0.12);
+        --text: #e8edf5;
+        --muted: #9fb0c7;
+        --accent: #64ffda;
+        --accent-2: #8ab4ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Inter", system-ui, -apple-system, Segoe UI, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at 20% 20%, rgba(100, 255, 218, 0.08), transparent 40%),
+          radial-gradient(circle at 80% 0%, rgba(138, 180, 255, 0.1), transparent 35%),
+          linear-gradient(145deg, #0b1220 0%, #0b1220 60%, #0f182b 100%);
+        background-attachment: fixed;
+        padding: 32px 18px 48px;
+      }
+
+      .shell {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        padding: 24px 18px 16px;
+        display: grid;
+        gap: 18px;
+        justify-items: center;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .logo-wrap {
+        width: min(360px, 80vw);
+        background: var(--panel);
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        padding: 16px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35), 0 0 60px rgba(100, 255, 218, 0.12);
+      }
+
+      .logo-wrap img {
+        width: 100%;
+        display: block;
+      }
+
+      h1 {
+        margin: 6px 0 0;
+        font-size: clamp(1.9rem, 4vw, 2.4rem);
+        letter-spacing: -0.02em;
+      }
+
+      p.lede {
+        margin: 8px 0 0;
+        max-width: 680px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .button {
+        appearance: none;
+        border: 1px solid var(--border);
+        background: var(--card);
+        color: var(--text);
+        padding: 12px 16px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease,
+          background 120ms ease;
+      }
+
+      .button.primary {
+        background: linear-gradient(135deg, rgba(100, 255, 218, 0.12), rgba(138, 180, 255, 0.12));
+        border-color: rgba(100, 255, 218, 0.4);
+        box-shadow: 0 14px 36px rgba(100, 255, 218, 0.16);
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+        border-color: rgba(255, 255, 255, 0.35);
+      }
+
+      section {
+        margin-top: 42px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 20px 18px 8px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+      }
+
+      section h2 {
+        margin: 0 0 6px;
+        font-size: 1.35rem;
+      }
+
+      section p.sub {
+        color: var(--muted);
+        margin: 0 0 18px;
+      }
+
+      .work-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 16px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(100, 255, 218, 0.1);
+        color: var(--accent);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        font-size: 0.75rem;
+      }
+
+      .card h3 {
+        margin: 0;
+      }
+
+      .card ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        display: grid;
+        gap: 6px;
+        line-height: 1.5;
+      }
+
+      .links {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      footer {
+        margin-top: 32px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      footer a {
+        color: var(--accent-2);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      footer a:hover,
+      footer a:focus-visible {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <span class="chip">News Portfolio · Coming soon</span>
+        <div class="logo-wrap">
+          <img src="/img/brianwalkerdev-transparent-logo-HQ.png" alt="Brian Walker logo" />
+        </div>
+        <h1>Reporting &amp; tech storytelling by Brian Walker</h1>
+        <p class="lede">
+          A concise space to showcase my favorite reporting, feature writing, and tech explainers.
+          While the full archive is being curated, start with the highlights below drawn from my
+          author pages.
+        </p>
+        <div class="cta-row">
+          <a
+            class="button primary"
+            href="https://www.makeuseof.com/author/brian-walker/"
+            target="_blank"
+            rel="noreferrer"
+            >MakeUseOf author page</a
+          >
+          <a
+            class="button"
+            href="https://www.thesouthend.wayne.edu/search/?q=%22Brian+Walker%22"
+            target="_blank"
+            rel="noreferrer"
+            >The South End articles</a
+          >
+        </div>
+      </header>
+
+      <section aria-labelledby="selected-works">
+        <h2 id="selected-works">Selected works</h2>
+        <p class="sub">
+          Early picks to explore now. A full portfolio grid and deeper annotations will be added
+          soon.
+        </p>
+        <div class="work-grid">
+          <article class="card">
+            <span class="badge">MakeUseOf</span>
+            <h3>Tech guides &amp; explainers</h3>
+            <ul>
+              <li>Actionable walkthroughs on workflows, devices, and digital productivity.</li>
+              <li>Coverage that balances accessibility with technical depth.</li>
+              <li>Written for readers who want to understand the &ldquo;why&rdquo; behind the how.</li>
+            </ul>
+            <div class="links">
+              <a
+                class="button"
+                href="https://www.makeuseof.com/author/brian-walker/"
+                target="_blank"
+                rel="noreferrer"
+                >Browse MakeUseOf pieces</a
+              >
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="badge" style="background: rgba(138, 180, 255, 0.1); color: var(--accent-2)"
+              >The South End</span
+            >
+            <h3>Campus &amp; community reporting</h3>
+            <ul>
+              <li>Local storytelling with a focus on voices, context, and impact.</li>
+              <li>News, features, and culture coverage from the Detroit community.</li>
+              <li>Selected clips gathered from my Wayne State publication history.</li>
+            </ul>
+            <div class="links">
+              <a
+                class="button"
+                href="https://www.thesouthend.wayne.edu/search/?q=%22Brian+Walker%22"
+                target="_blank"
+                rel="noreferrer"
+                >See The South End work</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="stay-tuned">
+        <h2 id="stay-tuned">Coming soon</h2>
+        <p class="sub">
+          This space will soon include annotated clips, story context, and writing notes to mirror
+          the polish of my web dev projects page.
+        </p>
+        <div class="work-grid">
+          <article class="card">
+            <h3>What&rsquo;s next</h3>
+            <ul>
+              <li>Featured clips with quick takeaways for editors and collaborators.</li>
+              <li>Sortable filters by topic, publication, and coverage type.</li>
+              <li>Side-by-side with <a href="https://projects.brianwalker.dev/" target="_blank" rel="noreferrer">projects.brianwalker.dev</a> for a cohesive portfolio.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Stay in the loop</h3>
+            <ul>
+              <li>Reach out for assignments or collaborations.</li>
+              <li>Check back soon as the full portfolio rolls out.</li>
+              <li>Thanks for reading!</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        Crafted to complement <a href="https://projects.brianwalker.dev/" target="_blank" rel="noreferrer">projects.brianwalker.dev</a>.
+      </footer>
+    </div>
+  </body>
+</html>

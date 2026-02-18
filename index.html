@@ -4,6 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brian Walker | News Portfolio</title>
+    <meta
+      name="description"
+      content="News writing portfolio for Brian Walker featuring journalism from MakeUseOf and The South End."
+    />
+    <meta property="og:title" content="Brian Walker | News Portfolio" />
+    <meta
+      property="og:description"
+      content="Selected articles from MakeUseOf and The South End. Full portfolio coming soon."
+    />
+    <meta property="og:image" content="img/brianwalkerdev-transparent-logo-hq.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://brianwalker.dev/news" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="img/brianwalkerdev-transparent-logo-hq.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -123,6 +137,7 @@
         outline-offset: 3px;
         box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.25);
       }
+
       section {
         background: rgba(15, 23, 42, 0.8);
         border: 1px solid var(--card-border);
@@ -150,6 +165,11 @@
         color: var(--accent);
         text-decoration: none;
         font-weight: 600;
+      }
+
+      .more-link:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
       }
 
       .grid {
@@ -192,6 +212,7 @@
         outline: 2px solid var(--accent);
         outline-offset: 3px;
       }
+
       .card p {
         margin: 0;
         color: var(--muted);
@@ -210,12 +231,17 @@
         text-decoration: none;
         font-weight: 600;
       }
+
+      footer a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
     </style>
   </head>
   <body>
     <div class="page">
       <header>
-        <div class="logo-wrap" aria-hidden="true">
+        <div class="logo-wrap">
           <img
             src="img/brianwalkerdev-transparent-logo-hq.png"
             alt="Brian Walker logo"
@@ -229,7 +255,11 @@
           I build as a developer. Full site coming soon—explore featured stories below.
         </p>
         <div class="actions">
-          <a class="button" href="https://projects.brianwalker.dev/" target="_blank" rel="noreferrer"
+          <a
+            class="button"
+            href="https://projects.brianwalker.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
             >View my web dev projects</a
           >
           <a class="button secondary" href="mailto:hello@brianwalker.dev">Contact</a>
@@ -243,7 +273,7 @@
             class="more-link"
             href="https://www.makeuseof.com/author/brian-walker/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             >View MakeUseOf profile</a
           >
         </div>
@@ -253,7 +283,7 @@
             <a
               href="https://www.makeuseof.com/dont-need-microsoft-windows-subsystem-for-linux/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               >No, You Don't Need Microsoft Windows Subsystem for Linux (WSL), and Here's Why</a
             >
             <p>Why Linux, dual-booting, and VMs can trump WSL depending on what you need.</p>
@@ -263,7 +293,7 @@
             <a
               href="https://www.makeuseof.com/github-copilot-benefits-worth-potential-drawbacks/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               >Are the Benefits of GitHub Copilot Worth the Potential Drawbacks?</a
             >
             <p>Weighing productivity gains against privacy, licensing, and accuracy concerns.</p>
@@ -273,7 +303,7 @@
             <a
               href="https://www.makeuseof.com/software-developer-expressing-yourself-through-code/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               >How to Get Ahead as a Software Developer by Expressing Yourself Through Code</a
             >
             <p>On the value of storytelling in code and how it shapes your career.</p>
@@ -283,7 +313,7 @@
             <a
               href="https://www.makeuseof.com/why-you-probably-want-to-use-more-than-one-node-package-manager/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               >Why You’ll Probably Want To Use More Than One Node Package Manager</a
             >
             <p>Exploring the trade-offs of npm, Yarn, and pnpm for modern workflows.</p>
@@ -293,7 +323,7 @@
             <a
               href="https://www.thesouthend.wayne.edu/archives/article_9b8b6a02-0804-52b2-b0df-07cd3916756b.html"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               >Event highlights US, China trade</a
             >
             <p>Covering trade-focused discussions hosted by Wayne State.</p>
@@ -303,7 +333,7 @@
             <a
               href="https://www.thesouthend.wayne.edu/news/article_39676716-1005-5fab-9474-7900132c1575.html"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               >The more you know about Detroit ...</a
             >
             <p>Helping attendees dive into the city through the Detroit Orientation Institute.</p>
@@ -313,7 +343,7 @@
             <a
               href="https://www.thesouthend.wayne.edu/article_2a12519e-6cc4-5e5e-ab44-781d80f84048.html"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               >Wayne State must become selective</a
             >
             <p>A perspective on admissions, student success, and graduation rates.</p>
@@ -326,14 +356,14 @@
         <a
           href="https://www.makeuseof.com/author/brian-walker/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           >MakeUseOf</a
         >
         and
         <a
           href="https://www.thesouthend.wayne.edu/search/?q=%22Brian+Walker%22"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           >The South End</a
         >.
       </footer>

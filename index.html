@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brian Walker | News Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1021;
+      --panel: rgba(255, 255, 255, 0.04);
+      --text: #e7edf6;
+      --muted: #9fb0c3;
+      --accent: #7c3aed;
+      --accent-2: #22d3ee;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.12), transparent 28%),
+                  radial-gradient(circle at 80% 10%, rgba(34, 211, 238, 0.12), transparent 30%),
+                  radial-gradient(circle at 50% 80%, rgba(124, 58, 237, 0.08), transparent 25%),
+                  var(--bg);
+    }
+    a { color: inherit; text-decoration: none; }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    header .badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      box-shadow: var(--shadow);
+    }
+    .hero {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .hero::after, .hero::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      filter: blur(80px);
+      opacity: 0.3;
+      z-index: 0;
+    }
+    .hero::after { background: var(--accent); right: -40px; top: -60px; }
+    .hero::before { background: var(--accent-2); left: -60px; bottom: -80px; }
+    .logo-wrap {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 18px;
+      background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 60%);
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+    }
+    .logo-wrap img {
+      max-width: 140px;
+      width: 100%;
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.35));
+    }
+    h1 {
+      margin: 8px 0 10px;
+      font-size: 28px;
+      letter-spacing: 0.01em;
+      z-index: 1;
+      position: relative;
+    }
+    .subtitle {
+      margin: 0 auto 18px;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: linear-gradient(120deg, rgba(124, 58, 237, 0.18), rgba(34, 211, 238, 0.12));
+      color: var(--text);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+      box-shadow: var(--shadow);
+    }
+    .button.secondary {
+      background: transparent;
+      color: var(--muted);
+    }
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    section {
+      margin-top: 40px;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 0.01em;
+    }
+    .section-head .hint {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      transition: transform 140ms ease, border-color 140ms ease;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(124, 58, 237, 0.16);
+      color: #d9c2ff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .pill.alt {
+      background: rgba(34, 211, 238, 0.14);
+      color: #c3f6ff;
+    }
+    .card h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+      flex: 1;
+    }
+    .card .meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .card .meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    footer {
+      margin-top: 48px;
+      padding: 18px 0 8px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+    @media (max-width: 640px) {
+      header { flex-direction: column; align-items: flex-start; }
+      .logo-wrap { width: 150px; height: 150px; }
+      h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="badge">News Portfolio • Coming Soon</div>
+      <a class="button secondary" href="https://projects.brianwalker.dev/" target="_blank" rel="noopener">View my web dev projects</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="logo-wrap">
+          <img src="img/brianwalkerdev-transparent-logo-hq.png" alt="Brian Walker logo">
+        </div>
+        <h1>Brian Walker — News &amp; Feature Writing</h1>
+        <p class="subtitle">
+          A curated look at my journalism and tech writing. The full experience is on its way, but you can explore selected articles and author pages below.
+        </p>
+        <div class="cta-row">
+          <a class="button" href="https://www.makeuseof.com/author/brian-walker/" target="_blank" rel="noopener">MakeUseOf Author Page</a>
+          <a class="button secondary" href="https://www.thesouthend.wayne.edu/search/?q=%22Brian+Walker%22" target="_blank" rel="noopener">The South End Archives</a>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>Featured work at MakeUseOf</h2>
+          <span class="hint">Tech explainers &amp; product thinking</span>
+        </div>
+        <div class="grid">
+          <a class="card" href="https://www.makeuseof.com/dont-need-microsoft-windows-subsystem-for-linux/" target="_blank" rel="noopener">
+            <span class="pill">MakeUseOf</span>
+            <h3>No, You Don't Need Microsoft Windows Subsystem for Linux (WSL), and Here's Why</h3>
+            <p>Clarifying when WSL shines—and why traditional Linux setups remain essential for many developers.</p>
+            <div class="meta">
+              <span>Linux &amp; workflows</span>
+              <span>2023</span>
+            </div>
+          </a>
+          <a class="card" href="https://www.makeuseof.com/github-copilot-benefits-worth-potential-drawbacks/" target="_blank" rel="noopener">
+            <span class="pill">MakeUseOf</span>
+            <h3>Are the Benefits of GitHub Copilot Worth the Potential Drawbacks?</h3>
+            <p>An early look at AI-assisted coding—balancing productivity boosts with privacy and practice.</p>
+            <div class="meta">
+              <span>AI &amp; coding</span>
+              <span>2023</span>
+            </div>
+          </a>
+          <a class="card" href="https://www.makeuseof.com/software-developer-expressing-yourself-through-code/" target="_blank" rel="noopener">
+            <span class="pill">MakeUseOf</span>
+            <h3>How to Get Ahead as a Software Developer by Expressing Yourself Through Code</h3>
+            <p>Exploring creativity, personal voice, and career growth through the craft of software.</p>
+            <div class="meta">
+              <span>Career</span>
+              <span>2023</span>
+            </div>
+          </a>
+          <a class="card" href="https://www.makeuseof.com/why-you-probably-want-to-use-more-than-one-node-package-manager/" target="_blank" rel="noopener">
+            <span class="pill">MakeUseOf</span>
+            <h3>Why You’ll Probably Want To Use More Than One Node Package Manager</h3>
+            <p>A practical guide to npm, Yarn, and pnpm—where each shines in modern JavaScript workflows.</p>
+            <div class="meta">
+              <span>JavaScript</span>
+              <span>2023</span>
+            </div>
+          </a>
+          <a class="card" href="https://www.makeuseof.com/new-features-worth-checking-out-in-flutter-3-7/" target="_blank" rel="noopener">
+            <span class="pill">MakeUseOf</span>
+            <h3>New Features Worth Checking Out in Flutter 3.7</h3>
+            <p>Highlighting the updates that matter to cross-platform builders shipping delightful apps.</p>
+            <div class="meta">
+              <span>Flutter</span>
+              <span>2023</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>Campus reporting at The South End</h2>
+          <span class="hint">Student journalism from Wayne State University</span>
+        </div>
+        <div class="grid">
+          <a class="card" href="https://www.thesouthend.wayne.edu/search/?q=%22Brian+Walker%22" target="_blank" rel="noopener">
+            <span class="pill alt">The South End</span>
+            <h3>Explore my South End bylines</h3>
+            <p>Browse coverage and features reported for Wayne State’s student newspaper. A curated spotlight is coming to this page soon.</p>
+            <div class="meta">
+              <span>Campus &amp; community</span>
+              <span>Archive</span>
+            </div>
+          </a>
+          <a class="card" href="https://www.thesouthend.wayne.edu/search/?q=%22Brian+Walker%22" target="_blank" rel="noopener">
+            <span class="pill alt">Highlights</span>
+            <h3>Feature &amp; news samples</h3>
+            <p>Selected pieces across campus life, culture, and local issues will live here. Until then, use the archive link to view the full set.</p>
+            <div class="meta">
+              <span>Coming soon</span>
+              <span>2024</span>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© Brian Walker • News writing &amp; storytelling</div>
+    </footer>
+  </div>
+</body>
+</html>

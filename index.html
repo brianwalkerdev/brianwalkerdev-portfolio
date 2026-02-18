@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brian Walker | News Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0b1220;
+        --panel: #0f172a;
+        --accent: #64ffda;
+        --muted: #c7d2fe;
+        --text: #e2e8f0;
+        --card-border: rgba(100, 255, 218, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        background: radial-gradient(circle at 20% 20%, #12213c 0, #0b1220 40%),
+          radial-gradient(circle at 80% 10%, #10243f 0, #0b1220 35%),
+          var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+      }
+
+      .page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 64px 24px 96px;
+      }
+
+      header {
+        text-align: center;
+        display: grid;
+        gap: 24px;
+        justify-items: center;
+        margin-bottom: 56px;
+      }
+
+      .logo-wrap {
+        background: linear-gradient(135deg, rgba(100, 255, 218, 0.2), rgba(12, 24, 41, 0.7));
+        border: 1px solid var(--card-border);
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      }
+
+      .logo {
+        max-width: 280px;
+        width: 70vw;
+        height: auto;
+        display: block;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(28px, 4vw, 42px);
+        letter-spacing: -0.02em;
+      }
+
+      .tagline {
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(16px, 2vw, 20px);
+        max-width: 740px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: rgba(100, 255, 218, 0.08);
+        border: 1px solid var(--card-border);
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .button {
+        background: var(--accent);
+        color: #0a1627;
+        padding: 14px 18px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        border: 1px solid transparent;
+        transition: transform 150ms ease, box-shadow 150ms ease;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--card-border);
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      section {
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid var(--card-border);
+        border-radius: 18px;
+        padding: 28px 24px 16px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      }
+
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 18px;
+        flex-wrap: wrap;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: -0.01em;
+      }
+
+      .more-link {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 14px;
+        background: linear-gradient(145deg, rgba(17, 29, 51, 0.8), rgba(14, 25, 44, 0.9));
+        border: 1px solid var(--card-border);
+        display: grid;
+        gap: 8px;
+        transition: transform 140ms ease, border-color 140ms ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(100, 255, 218, 0.2);
+      }
+
+      .card .source {
+        color: var(--accent);
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .card a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      footer {
+        margin-top: 28px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="logo-wrap" aria-hidden="true">
+          <img
+            src="img/brianwalkerdev%20Transparent%20logo%20HQ.png"
+            alt="Brian Walker logo"
+            class="logo"
+          />
+        </div>
+        <div class="badge">News writing portfolio · Coming soon</div>
+        <h1>Reporting, analysis, and stories that connect tech with people.</h1>
+        <p class="tagline">
+          A curated look at my journalism work for MakeUseOf and The South End, alongside the projects
+          I build as a developer. Full site coming soon—explore featured stories below.
+        </p>
+        <div class="actions">
+          <a class="button" href="https://projects.brianwalker.dev/" target="_blank" rel="noreferrer"
+            >View my web dev projects</a
+          >
+          <a class="button secondary" href="mailto:hello@brianwalker.dev">Contact</a>
+        </div>
+      </header>
+
+      <section aria-labelledby="selected-works">
+        <div class="section-head">
+          <h2 id="selected-works">Selected works</h2>
+          <a
+            class="more-link"
+            href="https://www.makeuseof.com/author/brian-walker/"
+            target="_blank"
+            rel="noreferrer"
+            >View MakeUseOf profile</a
+          >
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="source">MakeUseOf</div>
+            <a
+              href="https://www.makeuseof.com/dont-need-microsoft-windows-subsystem-for-linux/"
+              target="_blank"
+              rel="noreferrer"
+              >No, You Don't Need Microsoft Windows Subsystem for Linux (WSL), and Here's Why</a
+            >
+            <p>Why Linux, dual-booting, and VMs can trump WSL depending on what you need.</p>
+          </article>
+          <article class="card">
+            <div class="source">MakeUseOf</div>
+            <a
+              href="https://www.makeuseof.com/github-copilot-benefits-worth-potential-drawbacks/"
+              target="_blank"
+              rel="noreferrer"
+              >Are the Benefits of GitHub Copilot Worth the Potential Drawbacks?</a
+            >
+            <p>Weighing productivity gains against privacy, licensing, and accuracy concerns.</p>
+          </article>
+          <article class="card">
+            <div class="source">MakeUseOf</div>
+            <a
+              href="https://www.makeuseof.com/software-developer-expressing-yourself-through-code/"
+              target="_blank"
+              rel="noreferrer"
+              >How to Get Ahead as a Software Developer by Expressing Yourself Through Code</a
+            >
+            <p>On the value of storytelling in code and how it shapes your career.</p>
+          </article>
+          <article class="card">
+            <div class="source">MakeUseOf</div>
+            <a
+              href="https://www.makeuseof.com/why-you-probably-want-to-use-more-than-one-node-package-manager/"
+              target="_blank"
+              rel="noreferrer"
+              >Why You’ll Probably Want To Use More Than One Node Package Manager</a
+            >
+            <p>Exploring the trade-offs of npm, Yarn, and pnpm for modern workflows.</p>
+          </article>
+          <article class="card">
+            <div class="source">The South End</div>
+            <a
+              href="https://www.thesouthend.wayne.edu/archives/article_9b8b6a02-0804-52b2-b0df-07cd3916756b.html"
+              target="_blank"
+              rel="noreferrer"
+              >Event highlights US, China trade</a
+            >
+            <p>Covering trade-focused discussions hosted by Wayne State.</p>
+          </article>
+          <article class="card">
+            <div class="source">The South End</div>
+            <a
+              href="https://www.thesouthend.wayne.edu/news/article_39676716-1005-5fab-9474-7900132c1575.html"
+              target="_blank"
+              rel="noreferrer"
+              >The more you know about Detroit ...</a
+            >
+            <p>Helping attendees dive into the city through the Detroit Orientation Institute.</p>
+          </article>
+          <article class="card">
+            <div class="source">The South End</div>
+            <a
+              href="https://www.thesouthend.wayne.edu/article_2a12519e-6cc4-5e5e-ab44-781d80f84048.html"
+              target="_blank"
+              rel="noreferrer"
+              >Wayne State must become selective</a
+            >
+            <p>A perspective on admissions, student success, and graduation rates.</p>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        More stories coming soon. In the meantime, follow my work on
+        <a
+          href="https://www.makeuseof.com/author/brian-walker/"
+          target="_blank"
+          rel="noreferrer"
+          >MakeUseOf</a
+        >
+        and
+        <a
+          href="https://www.thesouthend.wayne.edu/search/?q=%22Brian+Walker%22"
+          target="_blank"
+          rel="noreferrer"
+          >The South End</a
+        >.
+      </footer>
+    </div>
+  </body>
+</html>

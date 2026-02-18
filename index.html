@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brian Walker | News &amp; Features Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1021;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #f4f6fb;
+      --muted: #cbd5e1;
+      --accent: #7dd3fc;
+      --accent-strong: #60a5fa;
+      --glass: rgba(255, 255, 255, 0.05);
+      --shadow: 0 20px 80px rgba(0, 0, 0, 0.55);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.2), transparent 28%),
+                  radial-gradient(circle at 80% 0%, rgba(45, 212, 191, 0.18), transparent 32%),
+                  radial-gradient(circle at 50% 70%, rgba(59, 130, 246, 0.22), transparent 30%),
+                  var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: min(1100px, 100%);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 36px clamp(24px, 4vw, 48px);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(96, 165, 250, 0.35), transparent 55%);
+      filter: blur(50px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .orb.one { top: -60px; left: -80px; }
+    .orb.two { bottom: -120px; right: -90px; background: radial-gradient(circle, rgba(16, 185, 129, 0.28), transparent 55%); }
+
+    header {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: clamp(20px, 5vw, 40px);
+      align-items: center;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.14);
+      color: var(--accent);
+      font-weight: 600;
+      width: fit-content;
+      border: 1px solid rgba(125, 211, 252, 0.35);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .badge-space {
+      margin-bottom: 8px;
+    }
+
+    .badge-blue {
+      background: rgba(96, 165, 250, 0.14);
+      color: var(--accent-strong);
+      border-color: rgba(96, 165, 250, 0.35);
+    }
+
+    .badge-green {
+      background: rgba(34, 197, 94, 0.14);
+      color: #a7f3d0;
+      border-color: rgba(34, 197, 94, 0.35);
+    }
+
+    .title {
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.1;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(120deg, var(--accent-strong), var(--accent));
+      color: #0b1120;
+      box-shadow: 0 10px 30px rgba(96, 165, 250, 0.35);
+    }
+
+    .btn.secondary {
+      border-color: rgba(255, 255, 255, 0.16);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+    }
+
+    .logo-wrap {
+      display: grid;
+      place-items: center;
+      background: var(--glass);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: clamp(20px, 4vw, 28px);
+      position: relative;
+    }
+
+    .logo-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 14px;
+      border: 1px dashed rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+
+    .logo {
+      width: min(320px, 100%);
+      filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.35));
+    }
+
+    section {
+      margin-top: clamp(32px, 6vw, 48px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.18s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(96, 165, 250, 0.35);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32);
+    }
+
+    .card span {
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .card h3 {
+      font-size: 17px;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .card a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+      .logo-wrap {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 540px) {
+      body {
+        padding: 16px;
+      }
+      .page {
+        padding: 24px;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .section-title {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+
+    <header>
+      <div class="hero">
+        <div class="badge">Coming soon &middot; News portfolio</div>
+        <h1 class="title">Brian Walker — News Writing &amp; Features</h1>
+        <p class="subtitle">
+          A home for my journalism, tech features, and reporting. Full portfolio page is on the way.
+          In the meantime, explore selected published work below.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://www.makeuseof.com/author/brian-walker/" target="_blank" rel="noreferrer">MakeUseOf Author Page</a>
+          <a class="btn secondary" href="https://www.thesouthend.wayne.edu/search/?q=%22Brian+Walker%22" target="_blank" rel="noreferrer">The South End Archives</a>
+          <a class="btn secondary" href="https://projects.brianwalker.dev/" target="_blank" rel="noreferrer">View Web Dev Projects</a>
+        </div>
+      </div>
+      <div class="logo-wrap" aria-hidden="true">
+        <img class="logo" src="img/brianwalkerdev%20Transparent%20logo%20HQ.png" alt="BrianWalker.dev logo" />
+      </div>
+    </header>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <p class="badge badge-blue badge-space">Selected Works</p>
+          <h2 class="section-title">Tech &amp; Features @ MakeUseOf</h2>
+        </div>
+        <a class="btn secondary" href="https://www.makeuseof.com/author/brian-walker/" target="_blank" rel="noreferrer">See all on MUO</a>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://www.makeuseof.com/dont-need-microsoft-windows-subsystem-for-linux/" target="_blank" rel="noreferrer">
+          <span>Windows Subsystem for Linux</span>
+          <h3>No, You Don't Need Microsoft Windows Subsystem for Linux (WSL), and Here's Why</h3>
+          <p>Exploring when native Linux or dual-booting is a better fit than Microsoft's WSL tooling.</p>
+        </a>
+        <a class="card" href="https://www.makeuseof.com/github-copilot-benefits-worth-potential-drawbacks/" target="_blank" rel="noreferrer">
+          <span>AI &amp; Development</span>
+          <h3>Are the Benefits of GitHub Copilot Worth the Potential Drawbacks?</h3>
+          <p>Weighing the productivity wins of AI pair programming against privacy and reliability concerns.</p>
+        </a>
+        <a class="card" href="https://www.makeuseof.com/software-developer-expressing-yourself-through-code/" target="_blank" rel="noreferrer">
+          <span>Career</span>
+          <h3>How to Get Ahead as a Software Developer by Expressing Yourself Through Code</h3>
+          <p>On the creative side of engineering and how personal style can set your work apart.</p>
+        </a>
+        <a class="card" href="https://www.makeuseof.com/why-you-probably-want-to-use-more-than-one-node-package-manager/" target="_blank" rel="noreferrer">
+          <span>Programming</span>
+          <h3>Why You’ll Probably Want to Use More Than One Node Package Manager</h3>
+          <p>Comparing npm, pnpm, and yarn and when each tool makes daily development smoother.</p>
+        </a>
+        <a class="card" href="https://www.makeuseof.com/new-features-worth-checking-out-in-flutter-3-7/" target="_blank" rel="noreferrer">
+          <span>Flutter</span>
+          <h3>New Features Worth Checking Out in Flutter 3.7</h3>
+          <p>A tour of the updates that improve the developer experience across mobile and web.</p>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <p class="badge badge-green badge-space">Campus &amp; Local Reporting</p>
+          <h2 class="section-title">Reporting @ The South End</h2>
+        </div>
+        <a class="btn secondary" href="https://www.thesouthend.wayne.edu/search/?q=%22Brian+Walker%22" target="_blank" rel="noreferrer">See all articles</a>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://www.thesouthend.wayne.edu/archives/article_9b8b6a02-0804-52b2-b0df-07cd3916756b.html" target="_blank" rel="noreferrer">
+          <span>International Trade</span>
+          <h3>Event highlights US, China trade</h3>
+          <p>Coverage of a Wayne State event featuring scholars and officials on cross-border trade relations.</p>
+        </a>
+        <a class="card" href="https://www.thesouthend.wayne.edu/news/article_39676716-1005-5fab-9474-7900132c1575.html" target="_blank" rel="noreferrer">
+          <span>Detroit</span>
+          <h3>The more you know about Detroit ...</h3>
+          <p>Introducing the Detroit Orientation Institute and how it immerses attendees in the city's history.</p>
+        </a>
+        <a class="card" href="https://www.thesouthend.wayne.edu/article_2a12519e-6cc4-5e5e-ab44-781d80f84048.html" target="_blank" rel="noreferrer">
+          <span>Higher Education</span>
+          <h3>Wayne State must become selective</h3>
+          <p>An opinionated look at graduation rates and the push for higher academic standards.</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="footer">
+      <span>More work coming soon — full portfolio page in progress.</span>
+      <a href="mailto:contact@brianwalker.dev">contact@brianwalker.dev</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -178,6 +178,26 @@
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       }
 
+      .section-break {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        font-size: 12px;
+      }
+
+      .section-break::before,
+      .section-break::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.35), transparent);
+      }
+
       .card {
         padding: 18px;
         border-radius: 14px;
@@ -278,6 +298,9 @@
           >
         </div>
         <div class="grid">
+          <div class="section-break" role="separator" aria-label="MakeUseOf articles">
+            MakeUseOf
+          </div>
           <article class="card">
             <div class="source">MakeUseOf</div>
             <a
@@ -318,6 +341,9 @@
             >
             <p>Exploring the trade-offs of npm, Yarn, and pnpm for modern workflows.</p>
           </article>
+          <div class="section-break" role="separator" aria-label="The South End articles">
+            The South End
+          </div>
           <article class="card">
             <div class="source">The South End</div>
             <a
@@ -347,6 +373,16 @@
               >Wayne State must become selective</a
             >
             <p>A perspective on admissions, student success, and graduation rates.</p>
+          </article>
+          <article class="card">
+            <div class="source">The South End</div>
+            <a
+              href="https://www.thesouthend.wayne.edu/archives/article_35036496-5f18-5cae-97ba-881ad2e4af73.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Celebrated designer left mark on campus</a
+            >
+            <p>Reflecting on Minoru Yamasaki's architectural legacy throughout Wayne State.</p>
           </article>
         </div>
       </section>

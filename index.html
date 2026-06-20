@@ -13,25 +13,26 @@
       property="og:description"
       content="Selected articles from MakeUseOf and The South End. Full portfolio coming soon."
     />
-    <meta property="og:image" content="img/brianwalkerdev-transparent-logo-hq.png" />
+    <meta property="og:image" content="img/logo.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://brianwalker.dev/news" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/png" href="img/brianwalkerdev-transparent-logo-hq.png" />
+    <link rel="icon" type="image/png" href="img/symbol.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --bg: #0b1220;
-        --panel: #0f172a;
-        --accent: #64ffda;
+        --bg: #101326;
+        --panel: #1c1e33;
+        --accent: #01e0ff;
         --muted: #c7d2fe;
         --text: #e2e8f0;
-        --card-border: rgba(100, 255, 218, 0.08);
+        --card-border: rgba(1, 224, 255, 0.15);
+        --accent-alt: #ed5c25;
       }
 
       * {
@@ -40,12 +41,17 @@
 
       body {
         margin: 0;
-        font-family: "Inter", system-ui, -apple-system, sans-serif;
-        background: radial-gradient(circle at 20% 20%, #12213c 0, #0b1220 40%),
-          radial-gradient(circle at 80% 10%, #10243f 0, #0b1220 35%),
+        font-family: "Open Sans", system-ui, -apple-system, sans-serif;
+        line-height: 1.6;
+        background: radial-gradient(circle at 20% 20%, #1c1e33 0, #101326 40%),
+          radial-gradient(circle at 80% 10%, #1a1f3d 0, #101326 35%),
           var(--bg);
         color: var(--text);
         min-height: 100vh;
+      }
+
+      h1, h2, h3, h4, h5, h6, .badge, .button, .source, .section-break {
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
       }
 
       .page {
@@ -63,7 +69,7 @@
       }
 
       .logo-wrap {
-        background: linear-gradient(135deg, rgba(100, 255, 218, 0.2), rgba(12, 24, 41, 0.7));
+        background: linear-gradient(135deg, rgba(1, 224, 255, 0.2), rgba(28, 30, 51, 0.7));
         border: 1px solid var(--card-border);
         border-radius: 18px;
         padding: 20px;
@@ -96,9 +102,9 @@
         gap: 8px;
         padding: 10px 16px;
         border-radius: 999px;
-        background: rgba(100, 255, 218, 0.08);
-        border: 1px solid var(--card-border);
-        color: var(--accent);
+        background: rgba(237, 92, 37, 0.1);
+        border: 1px solid rgba(237, 92, 37, 0.2);
+        color: var(--accent-alt);
         font-weight: 600;
       }
 
@@ -111,7 +117,7 @@
 
       .button {
         background: var(--accent);
-        color: #0a1627;
+        color: var(--bg);
         padding: 14px 18px;
         border-radius: 12px;
         text-decoration: none;
@@ -130,16 +136,24 @@
       .button:hover {
         transform: translateY(-2px);
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        background: var(--accent-alt);
+        color: #fff;
+      }
+
+      .button.secondary:hover {
+        background: rgba(237, 92, 37, 0.1);
+        border-color: var(--accent-alt);
+        color: var(--accent-alt);
       }
 
       .button:focus-visible {
         outline: 2px solid var(--accent);
         outline-offset: 3px;
-        box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.25);
+        box-shadow: 0 0 0 3px rgba(1, 224, 255, 0.25);
       }
 
       section {
-        background: rgba(15, 23, 42, 0.8);
+        background: rgba(28, 30, 51, 0.8);
         border: 1px solid var(--card-border);
         border-radius: 18px;
         padding: 28px 24px 16px;
@@ -195,13 +209,13 @@
         content: "";
         flex: 1;
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.35), transparent);
+        background: linear-gradient(90deg, transparent, rgba(1, 224, 255, 0.35), transparent);
       }
 
       .card {
         padding: 18px;
         border-radius: 14px;
-        background: linear-gradient(145deg, rgba(17, 29, 51, 0.8), rgba(14, 25, 44, 0.9));
+        background: linear-gradient(145deg, rgba(28, 30, 51, 0.8), rgba(16, 19, 38, 0.9));
         border: 1px solid var(--card-border);
         display: grid;
         gap: 8px;
@@ -210,7 +224,7 @@
 
       .card:hover {
         transform: translateY(-3px);
-        border-color: rgba(100, 255, 218, 0.2);
+        border-color: rgba(1, 224, 255, 0.3);
       }
 
       .card .source {
@@ -263,7 +277,7 @@
       <header>
         <div class="logo-wrap">
           <img
-            src="img/brianwalkerdev-transparent-logo-hq.png"
+            src="img/logo.png"
             alt="Brian Walker logo"
             class="logo"
           />
